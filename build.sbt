@@ -10,3 +10,4 @@ libraryDependencies ++= Seq("org.atilika.kuromoji" % "kuromoji" % "0.7.7",
 )
 
 resolvers += "Atilika Open Source repository" at "http://www.atilika.org/nexus/content/repositories/atilika"
+
