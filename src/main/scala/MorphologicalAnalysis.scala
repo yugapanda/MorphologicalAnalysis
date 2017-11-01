@@ -63,7 +63,7 @@ object MorphologicalAnalysis extends App{
 
   val dict = init
 
-  WebServer.mount(app).start()
+  //WebServer.mount(app).start()
 
   def getBasicForm(sentence: String): Array[String] = {
 
