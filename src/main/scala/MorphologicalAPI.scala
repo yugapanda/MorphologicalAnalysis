@@ -10,13 +10,13 @@ object MorphologicalAPI extends WebApp {
 
   get("/basic") {
 
-    JSONObject(Map("sentence" -> getBasicForm(params.getOrElse("sentence", "")))).toString
+    JSONObject(Map("sentence" -> getBasicForm(params.getOrElse("sentence", "")).toList))
 
   }
 
   get("/analysis") {
 
-    JSONObject(Map("sentence" -> getBasicForm(params.getOrElse("sentence", "")))).toString
+    JSONObject(Map("score" -> getScore(getBasicForm(params.getOrElse("sentence", "")))))
 
   }
 
