@@ -13,7 +13,7 @@ import scala.util._
 /**
   * Created by yuga on 2017/10/31.
   */
-object MorphologicalAPI extends WebApp {
+object app extends WebApp {
 
   error {
     case e =>
