@@ -12,7 +12,7 @@ import scala.util._
 /**
   * Created by yuga on 2017/10/31.
   */
-object App extends AsyncWebApp {
+object App extends WebApp {
 
   error {
     case e =>
