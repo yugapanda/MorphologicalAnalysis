@@ -7,6 +7,7 @@ import scala.util.parsing.json.JSONObject
 import MorphologicalAnalysis._
 
 
+
 object App extends AsyncWebApp with JSONSupport with ScalateSupport {
 
   error {

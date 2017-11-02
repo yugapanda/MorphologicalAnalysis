@@ -1,6 +1,6 @@
 lazy val root = (project in file("."))
   .settings(
-    name := "smorphological-analysis-np",
+    name := "morphological-analysis-np",
     version := "0.1",
     scalaVersion := "2.12.2",
     resolvers += "sonatype releases" at "https://oss.sonatype.org/content/repositories/releases",
