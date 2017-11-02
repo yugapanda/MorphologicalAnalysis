@@ -5,6 +5,7 @@
 import java.io.{BufferedReader, FileInputStream, InputStreamReader}
 
 import org.atilika.kuromoji.{Token, Tokenizer}
+import skinny.micro.WebServer
 
 
 object MorphologicalAnalysis extends App{
@@ -60,7 +61,7 @@ object MorphologicalAnalysis extends App{
 
   val dict = init
 
-  //WebServer.mount(app).start()
+ // WebServer.mount(App).port(810).start()
 
   def getBasicForm(sentence: String): Array[String] = {
 
