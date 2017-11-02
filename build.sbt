@@ -1,5 +1,3 @@
-
-
 lazy val root = (project in file("."))
   .settings(
     name := "smorphological-analysis-np",
@@ -19,7 +17,7 @@ lazy val root = (project in file("."))
     ),
     mainClass in Compile := Some("skinny.standalone.JettyLauncher"),
     // add src/main/webapp to unmanaged resources for sbt-start-script
-    unmanagedResourceDirectories in Compile <++= baseDirectory { base =>
+    unmanagedResourceDirectories in Compile <++= baseDirectory { base => 
       sys.env.get("LOCAL_DEV").map(_ => Seq.empty).getOrElse(Seq(base / "src/main/webapp"))
     },
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")

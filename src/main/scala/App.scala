@@ -1,18 +1,13 @@
-import skinny.micro.{WebApp, WebServer}
-import skinny.util._
-import MorphologicalAnalysis._
-import scala.util.parsing.json._
-
 import skinny.micro._
 import skinny.micro.contrib.ScalateSupport
 import skinny.micro.contrib.jackson.JSONSupport
+
 import scala.util._
+import scala.util.parsing.json.JSONObject
+import MorphologicalAnalysis._
 
 
-/**
-  * Created by yuga on 2017/10/31.
-  */
-object App extends WebApp {
+object App extends AsyncWebApp with JSONSupport with ScalateSupport {
 
   error {
     case e =>
@@ -20,12 +15,12 @@ object App extends WebApp {
       throw e
   }
 
-  get("/") {
-    "home!"
+  get("/") { implicit ctx =>
+    contentType = "text/html"
+    ssp("/index.ssp")
   }
 
-
-  get("/basic") {
+  get("/basic") { implicit ctx =>
 
     JSONObject(Map("sentence" -> getBasicForm(params.getOrElse("sentence", "")).toList))
 
@@ -35,6 +30,22 @@ object App extends WebApp {
 
     JSONObject(Map("score" -> getScore(getBasicForm(params.getOrElse("sentence", "")))))
 
+  }
+
+  post("/minify") { implicit ctx =>
+    contentType = "application/json"
+    fromJSONString[Map[String, Any]](request.body) match {
+      case Success(mapValue) => Ok(toJSONStringAsIs(mapValue))
+      case _ => BadRequest(toJSONString(Map("error" -> "JSON parse error")))
+    }
+  }
+
+  post("/prettify") { implicit ctx =>
+    contentType = "application/json"
+    fromJSONString[Map[String, Any]](request.body) match {
+      case Success(mapValue) => Ok(toPrettyJSONStringAsIs(mapValue))
+      case _ => BadRequest(toJSONString(Map("error" -> "JSON parse error")))
+    }
   }
 
 }

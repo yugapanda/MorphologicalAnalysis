@@ -4,11 +4,6 @@
 
 import java.io.{BufferedReader, FileInputStream, InputStreamReader}
 
-import org.atilika.kuromoji.Tokenizer
-import org.atilika.kuromoji.Token
-import skinny.micro.WebServer
-
-
 
 object MorphologicalAnalysis extends App{
 
