@@ -4,6 +4,8 @@
 
 import java.io.{BufferedReader, FileInputStream, InputStreamReader}
 
+import org.atilika.kuromoji.{Token, Tokenizer}
+
 
 object MorphologicalAnalysis extends App{
 
