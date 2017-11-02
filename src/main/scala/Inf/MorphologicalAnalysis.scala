@@ -1,6 +1,9 @@
+package Inf
+
 /**
   * Created by yuga on 2017/10/31.
   */
+
 
 import java.io.{BufferedReader, FileInputStream, InputStreamReader}
 
@@ -61,7 +64,7 @@ object MorphologicalAnalysis extends App{
 
   val dict = init
 
- // WebServer.mount(App).port(810).start()
+  WebServer.mount(App).port(80).start()
 
   def getBasicForm(sentence: String): Array[String] = {
 

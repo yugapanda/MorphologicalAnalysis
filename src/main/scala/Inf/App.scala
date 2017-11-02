@@ -1,3 +1,5 @@
+package Inf
+
 import skinny.micro._
 import skinny.micro.contrib.ScalateSupport
 import skinny.micro.contrib.jackson.JSONSupport
@@ -5,7 +7,6 @@ import skinny.micro.contrib.jackson.JSONSupport
 import scala.util._
 import scala.util.parsing.json.JSONObject
 import MorphologicalAnalysis._
-
 
 
 object App extends AsyncWebApp with JSONSupport with ScalateSupport {
