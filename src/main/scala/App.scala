@@ -26,7 +26,7 @@ object App extends AsyncWebApp with JSONSupport with ScalateSupport {
 
   }
 
-  get("/analysis") {
+  get("/analysis") { implicit  ctx =>
 
     JSONObject(Map("score" -> getScore(getBasicForm(params.getOrElse("sentence", "")))))
 
